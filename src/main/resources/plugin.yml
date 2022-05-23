@@ -1,0 +1,4 @@
+name: SGStats
+version: '${project.version}'
+main: io.github.hollypacker.sgstats.SGStats
+api-version: 1.18
