@@ -28,7 +28,9 @@ public class Statistics {
         FileConfiguration config = SGStats.getInstance().getConfig();
         if (config.getBoolean("broadcast-points") && broadcast) {
             for (Player player1 : Bukkit.getOnlinePlayers()) {
-                SGStats.getInstance().sendMessage("add-point", player1);
+                SGStats.getInstance().sendMessage("add-point", player1,
+                        new SGStats.Placeholder("{player}", player),
+                        new SGStats.Placeholder("{points}", points));
             }
         }
     }
