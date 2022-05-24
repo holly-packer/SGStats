@@ -1,13 +1,34 @@
 package io.github.hollypacker.sgstats;
 
+import io.github.hollypacker.sgstats.commands.PointsCommand;
+import io.github.hollypacker.sgstats.commands.ReloadCommand;
+import io.github.hollypacker.sgstats.commands.StopTrackingCommand;
+import io.github.hollypacker.sgstats.commands.TrackCommand;
+import io.github.hollypacker.sgstats.listeners.JoinListener;
+import io.github.hollypacker.sgstats.listeners.KillListener;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SGStats extends JavaPlugin {
 
+    private static SGStats instance;
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
+        // Initiate the instance
+        instance = this;
+        // Set up the config
+        setupConfig();
+        // Set up commands
+        setupCommands();
+        // Set up listeners
+        setupListeners();
+        // Create statistic instance
+        new Statistics();
+        // Create leaderboard manager
+        new LeaderboardManager();
     }
 
     @Override
