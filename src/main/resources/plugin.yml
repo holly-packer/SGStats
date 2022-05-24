@@ -1,4 +1,7 @@
 name: SGStats
 version: '${project.version}'
 main: io.github.hollypacker.sgstats.SGStats
+author: Holly Packer
 api-version: 1.18
+depend:
+  - SurvivalGames
