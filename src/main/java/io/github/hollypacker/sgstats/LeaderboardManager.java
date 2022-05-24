@@ -17,8 +17,12 @@ public class LeaderboardManager {
         instance = this;
         Component title = MiniMessage.miniMessage().deserialize(SGStats.getInstance().getConfig().getString("messages" +
                 ".scoreboard-title"));
-        scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-        objective = scoreboard.registerNewObjective("sgstats_points", "dummy", title);
+        scoreboard = Bukkit.getScoreboardManager().getMainScoreboard();
+        objective = scoreboard.getObjective("sgstats_points");
+        if (objective == null) {
+            objective = scoreboard.registerNewObjective("sgstats_points", "dummy", title);
+        }
+        objective.displayName(title);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
     }
 
