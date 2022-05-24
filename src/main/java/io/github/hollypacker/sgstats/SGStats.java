@@ -80,7 +80,7 @@ public final class SGStats extends JavaPlugin {
         String message = getConfig().getString("messages." + key);
         if (message == null) throw new NullPointerException("Message key " + key + " is null.");
         for (Placeholder placeholder : placeholders) {
-            message = message.replaceAll(placeholder.name, String.valueOf(placeholder.replacement));
+            message = message.replace(placeholder.name, String.valueOf(placeholder.replacement));
         }
         Component parsedMessage = MiniMessage.miniMessage().deserialize(message);
         sender.sendMessage(getPrefix().append(parsedMessage));
