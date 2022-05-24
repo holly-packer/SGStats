@@ -10,7 +10,7 @@ import org.bukkit.scoreboard.Scoreboard;
 public class LeaderboardManager {
 
     private final Scoreboard scoreboard;
-    private final Objective objective;
+    private Objective objective;
     private static LeaderboardManager instance;
 
     public LeaderboardManager() {
@@ -24,6 +24,12 @@ public class LeaderboardManager {
         }
         objective.displayName(title);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+    }
+
+    public void updateScoreboardName() {
+        Component title = MiniMessage.miniMessage().deserialize(SGStats.getInstance().getConfig().getString("messages" +
+                ".scoreboard-title"));
+        objective.displayName(title);
     }
 
     public void setPoints(String name, int points) {
