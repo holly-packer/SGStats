@@ -23,7 +23,7 @@ public class Statistics {
     public void addPoints(String player, int points, boolean broadcast) {
         int currentPoints = LeaderboardManager.getInstance().getPoints(player);
         LeaderboardManager.getInstance().setPoints(player, currentPoints + points);
-        SGStats.getInstance().getLogger().info("DEBUG: Added " + (currentPoints + points) + " points to " + player);
+        SGStats.getInstance().getLogger().info("DEBUG: Added " + points + " points to " + player);
         // Should we broadcast the points?
         FileConfiguration config = SGStats.getInstance().getConfig();
         if (config.getBoolean("broadcast-points") && broadcast) {
