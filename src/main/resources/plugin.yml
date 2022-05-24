@@ -5,3 +5,34 @@ author: Holly Packer
 api-version: 1.18
 depend:
   - SurvivalGames
+libraries:
+  - net.kyori:adventure-text-minimessage:4.10.1
+
+commands:
+  #leaderboard:
+  #  description: Shows the leaderboard of all tracked users.
+  #  permission: sgstats.leaderboard
+  points:
+    description: Shows the points of a specified user.
+    permission: sgstats.points
+  statsreload:
+    description: Reloads the plugin configuration.
+    permission: sgstats.reload
+  stoptrack:
+    description: Removes a player from the leaderboard.
+    permission: sgstats.stoptrack
+  track:
+    description: Adds a player with 0 points to the leaderboard.
+    permission: sgstats.track
+
+permissions:
+  sgstats.points:
+    default: true
+  sgstats.points.others:
+    default: op
+  sgstats.reload:
+    default: op
+  sgstats.stoptrack:
+    default: op
+  sgstats.track:
+    default: op
