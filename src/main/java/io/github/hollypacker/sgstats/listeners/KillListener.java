@@ -31,8 +31,9 @@ public class KillListener implements Listener {
 
     @EventHandler
     public void onDumbDie(EntityDamageEvent event) {
-        if (event.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK ||
-                event.getCause() == EntityDamageEvent.DamageCause.ENTITY_SWEEP_ATTACK) {
+        if (event.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK
+                || event.getCause() == EntityDamageEvent.DamageCause.PROJECTILE
+                || event.getCause() == EntityDamageEvent.DamageCause.ENTITY_SWEEP_ATTACK) {
             return;
         }
 
